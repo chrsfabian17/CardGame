@@ -6,4 +6,9 @@
 //  Copyright © 2016 CTECH SWIFT. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class PlayingCard : Card
+{
+    
+}
