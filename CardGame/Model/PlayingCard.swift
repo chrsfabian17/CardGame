@@ -45,6 +45,7 @@ class PlayingCard : Card
             self.color = color
         }
     }
+    
     private var frontImage : UIImage
     {
         get
@@ -58,14 +59,46 @@ class PlayingCard : Card
         }
     }
     
+    private var backImage : UIImage
+    {
+        get
+        {
+            return self.backImage
+        }
+        set(backImage)
+        {
+            self.backImage = backImage
+        }
+    }
+    
     override init()
     {
         super.init()
         frontImage = UIImage()
+        backImage = UIImage()
         color = UIColor()
         rank = 0
-        suit = ""
+        suit = String()
     }
+    
+    override func toString() -> String
+    {
+        let facing : String
+        if self.isUp()
+        {
+           facing = "is face up."
+        }
+        else
+        {
+            facing = "is face down."
+        }
+        
+        let description = "This Playing card has a face value of \(rank), a color of \(color), the back image is \(self.getBackImage()), and is of the \(suit) suit \(facing)"
+    
+        return description
+    }
+    
+    
     
     func getRank() -> Int
     {
